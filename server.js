@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 //routes
 app.use(webRoutes);
@@ -21,5 +22,5 @@ app.use(ejsLayouts);
 app.set('views', path.join(__dirname, '/resources/views'))
 
 app.listen(PORT, () => {
-  console.log(`server is running on port ${PORT}`);
+  console.log(`server is running on http://localhost:${PORT}`);
 })
