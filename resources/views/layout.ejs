@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Pacifico&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+  <title>ShopEasy - Go to Sneaker Shop</title>
+</head>
+
+<body>
+  <nav class="container mx-auto flex items-center justify-between py-4">
+    <div>
+      <img class="w-1/2" src="/images/logo.png" alt="">
+    </div>
+    <div>
+      <ul class="flex items-center">
+        <li class="ml-6"><a href="/">Explore</a></li>
+        <li class="ml-6"><a href="/">About Us</a></li>
+        <li class="ml-6"><a href="/register">Register</a></li>
+        <li class="ml-6"><a href="/login">Login</a></li>
+        <li class="ml-6 rounded-2xl"><a href=""><img src="/images/cart.png" class="px-4 py-2" alt="cart"></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <%- body %>
+
+    <script src=" /js/app.js"></script>
+</body>
+
+</html>

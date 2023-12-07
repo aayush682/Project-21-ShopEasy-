@@ -1,137 +1,101 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Pacifico&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="/css/app.css">
-  <title>ShopEasy - Go to Sneaker Shop</title>
-</head>
-
-<body>
-  <nav class="container mx-auto flex items-center justify-between py-8">
-    <div>
-      <img class="w-5/6" src="/images/logo.png" alt="">
+<section class="hero bg-gray-100 py-16">
+  <div class="container mx-auto flex items-center justify-between">
+    <div class="w-1/2">
+      <h6 class="text-3xl text-1 font-normal text-gray-800 py-8">Get up to 50% off on selected sneakers</h6>
+      <h1 class="text-6xl text-2 "><span>Sneaker's</span> specially designed for you!</h1>
+      <button class="py-3 px-8 rounded-full text-white text-xl font-bold mt-8 btn-primary">Explore</button>
     </div>
-    <div>
-      <ul class="flex items-center">
-        <li class="ml-6"><a href="#">Explore</a></li>
-        <li class="ml-6"><a href="#">Live Offers</a></li>
-        <li class="ml-6"><a href="#">Register</a></li>
-        <li class="ml-6"><a href="#">Login</a></li>
-        <li class="ml-6 rounded-2xl"><a href=""><img src="/images/cart.png" class="px-4 py-2" alt="cart"></a></li>
-      </ul>
+    <div class="w-1/2">
+      <img src="/images/shoes-bg1.jpg" class="ml-40" alt="">
     </div>
-  </nav>
-
-  <section class="hero bg-gray-100 py-16">
-    <div class="container mx-auto flex items-center justify-between">
-      <div class="w-1/2">
-        <h6 class="text-3xl text-1 font-normal text-gray-800 py-8">Get up to 50% off on selected sneakers</h6>
-        <h1 class="text-6xl text-2 "><span>Sneaker's</span> specially designed for you</h1>
-      </div>
-      <div class="w-1/2">
-        <img src="/images/shoes-bg.jpg" class="ml-32" alt="">
-      </div>
-    </div>
-  </section>
-  <section class="menu container mx-auto py-16">
-    <h1 class="text-4xl font-semibold mb-8">All Sneakers</h1>
-    <div class="grid grid-cols-4 col-gap-12 row-gap-16">
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes1.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes2.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes3.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes4.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes5.jpg" alt="">
-        <div class="text-center">
-          <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
-          <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ 1,999</span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
-              <span>+</span>
-              <span class="ml-4">Add</span>
-            </button>
-          </div>
+  </div>
+</section>
+<section class="menu container mx-auto py-16">
+  <h1 class="text-4xl font-semibold mb-8">All Sneakers</h1>
+  <div class="grid grid-cols-4 col-gap-12 row-gap-16">
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
         </div>
       </div>
     </div>
-  </section>
-
-  <script src=" /js/app.js"></script>
-</body>
-
-</html>
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes1.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes2.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes3.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes4.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <img class="h-48 mb-4 mx-auto" src="/images/hero-shoes5.jpg" alt="">
+      <div class="text-center">
+        <h2 class="mb-4 text-lg font-semibold">Puma RX 737 MMQ</h2>
+        <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : 39</span>
+        <div class="flex items-center justify-around mt-6">
+          <span class="font-bold text-lg">₹ 1,999</span>
+          <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span>+</span>
+            <span class="ml-4">Add</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

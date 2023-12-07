@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "inter", sans-serif;
+  font-family: "inter";
   color: #232323;
 }
 
@@ -39,6 +39,17 @@ section h1 span {
   font-family: "Pacifico";
 }
 
+.btn-primary {
+  background: #ff3c00;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: #252525;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+
 .add-to-cart {
   border: 2px solid #252525;
   color: #252525;
@@ -51,4 +62,21 @@ section h1 span {
 }
 .add-to-cart:focus {
   outline: none;
+}
+
+section.cart {
+  background: #f8f8f8;
+}
+section.cart .amount {
+  color: #ff3c00;
+}
+
+section.login {
+  background: #f8f8f8;
+  min-height: 87.2vh;
+}
+
+section.register {
+  background: #f8f8f8;
+  min-height: 87.2vh;
 }
