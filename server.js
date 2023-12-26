@@ -38,7 +38,6 @@ app.use(session({
   cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hours
 }));
 
-
 app.use(flash())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
