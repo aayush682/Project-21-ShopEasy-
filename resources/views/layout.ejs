@@ -25,7 +25,12 @@
         <li class="ml-6"><a href="/about">About Us</a></li>
         <li class="ml-6"><a href="/register">Register</a></li>
         <li class="ml-6"><a href="/login">Login</a></li>
-        <li class="ml-6 rounded-2xl"><a href="/cart"><img src="/images/cart.png" class="px-4 py-2" alt="cart"></a></li>
+        <li class="ml-6 rounded-2xl"><a href="/cart" class=" inline-block px-4 py-2 flex items-center">
+            <span id="cartCounter" class="text-white font-semibold pr-2">
+              <%= session.cart ? session.cart.totalQty : 0 %>
+            </span>
+            <img src="/images/cart.png" class="" alt="cart">
+          </a></li>
       </ul>
     </div>
   </nav>

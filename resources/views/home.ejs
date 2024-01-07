@@ -16,17 +16,18 @@
 <section class="menu container mx-auto py-16">
   <h1 class="text-4xl font-semibold mb-8" id="menu">All Sneakers</h1>
   <div class="grid grid-cols-4 col-gap-12 row-gap-16">
-    <% shoes.forEach((shoes)=> { %>
+    <% shoes.forEach((shoe)=> { %>
       <div class="w-full">
-        <img class="h-48 mb-4 mx-auto" src="/images/<%= shoes.image %>" alt="">
+        <img class="h-48 mb-4 mx-auto" src="/images/<%= shoe.image %>" alt="">
         <div class="text-center">
           <h2 class="mb-4 text-lg font-semibold">
-            <%= shoes.name %>
+            <%= shoe.name %>
           </h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : <%= shoes.size %></span>
+          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : <%= shoe.size %></span>
           <div class="flex items-center justify-around mt-6">
-            <span class="font-bold text-lg">₹ <%= shoes.price %></span>
-            <button class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
+            <span class="font-bold text-lg">₹ <%= shoe.price %></span>
+            <button data-shoe="<%= JSON.stringify(shoe) %>"
+              class="add-to-cart py-1 px-6 rounded-full bg-gray-200 flex items-center font-bold">
               <span>+</span>
               <span class="ml-4">Add</span>
             </button>
