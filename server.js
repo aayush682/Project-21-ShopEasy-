@@ -30,13 +30,14 @@ connectDB();
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
+  saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_CONNECTION_URL,
     collectionName: 'sessions',
   }),
-  saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 } // 24 hours
 }));
+
 
 const initPassport = require('./app/config/passport');
 initPassport(passport);
@@ -48,16 +49,17 @@ app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("public"));
-
-app.use(ejsLayouts);
-app.set('views', path.join(__dirname, '/resources/views'));
-
 app.use((req, res, next) => {
   res.locals.session = req.session;
   res.locals.user = req.user;
   next();
 });
+
+app.use(express.static("public"));
+
+app.use(ejsLayouts);
+app.set('views', path.join(__dirname, '/resources/views'));
+
 
 app.set("view engine", "ejs");
 

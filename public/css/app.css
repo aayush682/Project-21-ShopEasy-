@@ -321,3 +321,7 @@ section.register {
   background: #f8f8f8;
   min-height: 87.2vh;
 }
+
+a.link {
+  color: #ff3c00;
+}

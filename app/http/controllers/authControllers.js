@@ -27,7 +27,6 @@ function authController() {
             req.flash('error', info.message)
             return next(err)
           }
-
           return res.redirect('/')
         })
       })(req, res, next)
@@ -36,45 +35,50 @@ function authController() {
       res.render('auth/register')
     },
     async postRegister(req, res) {
-      const { name, email, password } = req.body
-      // Validate request 
+      const { name, email, password } = req.body;
+
+      // Validate request
       if (!name || !email || !password) {
-        req.flash('error', 'All fields are required')
-        req.flash('name', name)
-        req.flash('email', email)
-        return res.redirect('/register')
+        req.flash('error', 'All fields are required');
+        req.flash('name', name);
+        req.flash('email', email);
+        return res.redirect('/register');
       }
 
-      // Check if email exists 
-      const emailExists = await User.exists({ email: email })
+      // Check if email exists
+      const emailExists = await User.exists({ email: email });
+
       if (emailExists) {
-        req.flash('error', 'Email already exists')
-        req.flash('name', name)
-        req.flash('email', email)
-        return res.redirect('/register')
+        req.flash('error', 'Email already taken');
+        req.flash('name', name);
+        req.flash('email', email);
+        return res.redirect('/register');
       }
 
-      // Hash password 
-      const hashedPassword = await bcrypt.hash(password, 10)
-      // Create a user 
-      const user = new User({
-        name,
-        email,
-        password: hashedPassword
-      })
+      try {
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-      user.save().then((user) => {
-        // Login
-        return res.redirect('/login')
-      }).catch(err => {
-        req.flash('error', 'Something went wrong')
-        return res.redirect('/register')
-      })
-    },
+        // Create a new user
+        const user = new User({ name, email, password: hashedPassword });
+
+        // Save user
+        await user.save();
+
+        // Redirect upon successful registration
+        res.redirect('/login');
+      } catch (err) {
+        req.flash('error', 'Something went wrong');
+        console.error(err);
+        return res.redirect('/register');
+      }
+    }
+    ,
     logout(req, res) {
-      req.logout(() => {
-        return res.redirect('/login')
+      req.logout((err) => {
+        if (err) return next(err)
       })
+      return res.redirect('/login')
     }
   }
 }

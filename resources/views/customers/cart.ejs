@@ -32,19 +32,30 @@
           <span class="font-bold text-xl">Subtotal :</span>
           <span class="amount font-bold text-2xl ml-2">₹<%= session.cart.totalPrice %></span>
           <div>
-            <form action="" class="mt-6">
-              <input type="text" placeholder="Enter Phone Number"
-                class="p-2 w-1/2 border border-gray-400 mb-4 rounded-xl">
-              <input type="text" placeholder="Enter Address" class="p-2 w-1/2 border border-gray-400 rounded-xl">
-              <div>
-                <button type="submit" class="btn-primary px-4 py-2 rounded-lg text-white font-bold text-lg mt-4">Place
-                  Order</button>
-              </div>
-            </form>
+            <% if(user) { %>
+              <form action="/orders" method="POST" class="mt-6">
+                <% if (messages.error) { %>
+                  <p class="text-red-500 text-sm font-bold">
+                    <%= messages.error %>
+                  </p>
+                  <% } %>
+                    <input name="phone" type="text" placeholder="Enter Phone Number"
+                      class="p-2 w-1/2 border border-gray-400 mb-4 rounded-xl">
+                    <input name="address" type="text" placeholder="Enter Address"
+                      class="p-2 w-1/2 border border-gray-400 rounded-xl">
+                    <div>
+                      <button type="submit"
+                        class="btn-primary px-4 py-2 rounded-lg text-white font-bold text-lg mt-4">Place
+                        Order</button>
+                    </div>
+              </form>
           </div>
-          <!-- <a href="/" class="inline-block btn-primary px-4 py-2 rounded-lg text-white font-bold text-lg mt-4">Login to
-          your
-          account</a> -->
+          <% } else { %>
+            <a href="/login"
+              class="inline-block btn-primary px-4 py-2 rounded-lg text-white font-bold text-lg mt-4">Login to
+              your
+              account</a>
+            <% } %>
         </div>
       </div>
     </div>

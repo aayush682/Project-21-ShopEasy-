@@ -56,6 +56,14 @@ addToCart.forEach(function (btn) {
   });
 });
 
+// Remove msg after 3 seconds
+var msg = document.querySelector('#success-alert');
+if (msg) {
+  setTimeout(function () {
+    msg.remove();
+  }, 3000);
+}
+
 /***/ }),
 
 /***/ "./node_modules/base64-js/index.js":

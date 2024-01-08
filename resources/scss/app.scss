@@ -87,3 +87,7 @@ section.register {
   background: $secondary;
   min-height: calc(100vh - 12.8vh);
 }
+
+a.link {
+  color: $primary-hover;
+}

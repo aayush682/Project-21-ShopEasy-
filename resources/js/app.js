@@ -41,3 +41,11 @@ addToCart.forEach((btn) => {
     updateCart(shoe);
   })
 })
+
+// Remove msg after 3 seconds
+const msg = document.querySelector('#success-alert')
+if (msg) {
+  setTimeout(() => {
+    msg.remove()
+  }, 3000)
+}
