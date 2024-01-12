@@ -1,6 +1,7 @@
 // Import the axios library for making HTTP requests and the Noty library for displaying notifications
 import axios from "axios";
 import Noty from "noty";
+import { initAdmin } from './admin.js';
 
 // Get all elements with the class "add-to-cart" and assign them to the variable addToCart
 let addToCart = document.querySelectorAll('.add-to-cart');
@@ -49,3 +50,6 @@ if (msg) {
     msg.remove()
   }, 3000)
 }
+
+// Initialize the admin interface
+initAdmin();
