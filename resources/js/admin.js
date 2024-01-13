@@ -1,33 +1,38 @@
-import axios from 'axios'
-import moment from 'moment'
-import Noty from 'noty'
+import axios from 'axios' // Importing the axios library for making HTTP requests
+import moment from 'moment' // Importing the moment library for date formatting
+import Noty from 'noty' // Importing the Noty library for displaying notifications
 
+// Function to initialize the admin page
 export function initAdmin(socket) {
-  const orderTableBody = document.querySelector('#orderTableBody')
-  let orders = []
-  let markup
+  const orderTableBody = document.querySelector('#orderTableBody') // Selecting the table body element
+  let orders = [] // Initializing an empty array for storing orders
+  let markup // Variable to store the generated HTML markup
 
+  // Making a GET request to '/admin/orders' endpoint
   axios.get('/admin/orders', {
     headers: {
       "X-Requested-With": "XMLHttpRequest"
     }
   }).then(res => {
-    orders = res.data
-    markup = generateMarkup(orders)
-    orderTableBody.innerHTML = markup
+    orders = res.data // Storing the received orders in the 'orders' variable
+    markup = generateMarkup(orders) // Generating HTML markup using the 'orders' data
+    orderTableBody.innerHTML = markup // Updating the table body with the generated markup
   }).catch(err => {
-    console.log(err)
+    console.log(err) // Logging any errors that occur during the request
   })
 
+  // Function to render the items of an order
   function renderItems(items) {
-    let parsedItems = Object.values(items)
+    let parsedItems = Object.values(items) // Converting the object values to an array
     return parsedItems.map((menuItem) => {
       return `
                 <p>${menuItem.item.name} - ${menuItem.qty} pcs </p>
             `
-    }).join('')
+    }).join('') // Joining the array elements into a string
   }
 
+
+  // Function to generate the HTML markup for the orders
   function generateMarkup(orders) {
     return orders.map(order => {
       return `
