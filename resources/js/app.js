@@ -2,6 +2,7 @@
 import axios from "axios";
 import Noty from "noty";
 import { initAdmin } from './admin.js';
+import moment from "moment";
 
 // Get all elements with the class "add-to-cart" and assign them to the variable addToCart
 let addToCart = document.querySelectorAll('.add-to-cart');
@@ -53,3 +54,72 @@ if (msg) {
 
 // Initialize the admin interface
 initAdmin();
+
+// Change the Status of the order
+let statuses = document.querySelectorAll('.status_line')
+let hiddenInput = document.querySelector('#hiddenInput')
+let order = hiddenInput ? hiddenInput.value : null
+order = JSON.parse(order)
+let time = document.createElement('small')
+
+// Function to update the status of the order
+function updateStatus(order) {
+  // Remove 'step-completed' and 'current' classes from all statuses
+  statuses.forEach((status) => {
+    status.classList.remove('step-completed')
+    status.classList.remove('current')
+  })
+
+  // Set a flag to track if the current step is completed
+  let stepCompleted = true;
+
+  // Iterate over all statuses
+  statuses.forEach((status) => {
+    let dataProp = status.dataset.status
+
+    // If the step is completed, add 'step-completed' class to the status
+    if (stepCompleted) {
+      status.classList.add('step-completed')
+    }
+
+    // If the status matches the order status
+    if (dataProp === order.status) {
+      stepCompleted = false // Set the flag to false
+      time.innerText = moment(order.updatedAt).format('hh:mm A') // Set the time
+      status.appendChild(time) // Append the time to the status
+
+      // If there is a next status, add 'current' class to it
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current')
+      }
+    }
+  })
+}
+
+updateStatus(order);
+
+
+// Socket io configuration
+let socket = io(); // Initialize socket io connection
+
+if (order) {
+  socket.emit('join', `orderId-${order._id}`); // Join a room based on the order ID if it exists
+}
+
+// Listen for 'orderUpdated' event from the server
+socket.on('orderUpdated', (data) => {
+  // Update the order details
+  const updatedOrder = { ...order }; // Make a copy of the original order object
+  updatedOrder.updatedAt = moment().format(); // Update the 'updatedAt' field with the current time
+  updatedOrder.status = data.status; // Update the 'status' field with the new status received from the server
+  console.log(data);
+  updateStatus(updatedOrder); // Call the 'updateStatus' function with the updated order object
+
+  // Show a notification to the user
+  new Noty({
+    type: 'success',
+    timeout: 2000,
+    text: 'Order Updated',
+    progressBar: true,
+  }).show();
+});

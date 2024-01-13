@@ -7,7 +7,7 @@ const passport = require('passport') // Import the passport library for authenti
 function authController() {
   // Define a helper function to get the redirect URL based on the user's role
   const _getRedirectURL = (req) => {
-    return req.user.role === 'Admin' ? '/admin/orders' : '/customers/orders'
+    return req.user.role === 'Admin' ? '/admin/orders' : '/customer/orders'
   }
 
   // Define and return an object with various controller methods

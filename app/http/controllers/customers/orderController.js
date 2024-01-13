@@ -48,6 +48,20 @@ function orderController() {
 
       // Render the customers/orders view with the orders and moment library
       res.render('customers/orders', { orders: orders, moment: moment });
+    },
+    // The show method retrieves the details of a specific order
+    async show(req, res) {
+      // Find the order by its ID
+      const order = await Order.findById(req.params.id);
+
+      // Check if the logged-in user is authorized to view the order
+      if (req.user._id.toString() === order.customerId.toString()) {
+        // Render the singleOrder view template with the order details
+        return res.render('customers/singleOrder', { order });
+      }
+
+      // If the user is not authorized, redirect them to the homepage
+      return res.redirect('/customers/dashboard');
     }
   }
 }
