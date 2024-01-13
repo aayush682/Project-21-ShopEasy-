@@ -101,11 +101,9 @@ updateStatus(order);
 
 // Socket io configuration
 let socket = io(); // Initialize socket io connection
-
 if (order) {
   socket.emit('join', `orderId-${order._id}`); // Join a room based on the order ID if it exists
 }
-
 // Listen for 'orderUpdated' event from the server
 socket.on('orderUpdated', (data) => {
   // Update the order details
