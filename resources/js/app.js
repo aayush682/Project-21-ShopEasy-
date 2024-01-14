@@ -53,7 +53,9 @@ if (msg) {
 }
 
 // Initialize the admin interface
-initAdmin();
+if (window.location.pathname.includes('admin')) {
+  initAdmin();
+}
 
 // Change the Status of the order
 let statuses = document.querySelectorAll('.status_line')
@@ -97,27 +99,3 @@ function updateStatus(order) {
 }
 
 updateStatus(order);
-
-
-// Socket io configuration
-let socket = io(); // Initialize socket io connection
-if (order) {
-  socket.emit('join', `orderId-${order._id}`); // Join a room based on the order ID if it exists
-}
-// Listen for 'orderUpdated' event from the server
-socket.on('orderUpdated', (data) => {
-  // Update the order details
-  const updatedOrder = { ...order }; // Make a copy of the original order object
-  updatedOrder.updatedAt = moment().format(); // Update the 'updatedAt' field with the current time
-  updatedOrder.status = data.status; // Update the 'status' field with the new status received from the server
-  console.log(data);
-  updateStatus(updatedOrder); // Call the 'updateStatus' function with the updated order object
-
-  // Show a notification to the user
-  new Noty({
-    type: 'success',
-    timeout: 2000,
-    text: 'Order Updated',
-    progressBar: true,
-  }).show();
-});

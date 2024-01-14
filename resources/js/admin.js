@@ -3,7 +3,7 @@ import moment from 'moment' // Importing the moment library for date formatting
 import Noty from 'noty' // Importing the Noty library for displaying notifications
 
 // Function to initialize the admin page
-export function initAdmin(socket) {
+export function initAdmin() {
   const orderTableBody = document.querySelector('#orderTableBody') // Selecting the table body element
   let orders = [] // Initializing an empty array for storing orders
   let markup // Variable to store the generated HTML markup
@@ -57,8 +57,8 @@ export function initAdmin(socket) {
                                     Confirmed</option>
                                 <option value="prepared" ${order.status === 'prepared' ? 'selected' : ''}>
                                     Prepared</option>
-                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>
-                                    Delivered
+                                <option value="out for delivery" ${order.status === 'out for delivery' ? 'selected' : ''}>
+                                    Out for Delivery
                                 </option>
                                 <option value="completed" ${order.status === 'completed' ? 'selected' : ''}>
                                     Completed

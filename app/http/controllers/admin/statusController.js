@@ -9,11 +9,6 @@ function statusController() {
          // Update the order status using Mongoose's updateOne method
          Order.updateOne({ _id: req.body.orderId }, { status: req.body.status })
             .then(() => {
-               // Emit event
-               const eventEmitter = req.app.get('eventEmitter');
-
-               // Emit the 'orderUpdated' event with the data as an object
-               eventEmitter.emit('orderUpdated', { id: req.body.orderId, status: req.body.status });
                // Redirect the response (res) to the '/admin/orders' route
                return res.redirect('/admin/orders');
             })

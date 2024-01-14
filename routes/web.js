@@ -15,6 +15,10 @@ const admin = require('../app/http/middlewares/admin');
 function initRoutes(app) {
   // Home route
   app.get("/", homeController().index);
+  app.get("/about", homeController().about);
+
+  // Shoe Api
+  app.get("/api/shoes", homeController().shoes);
 
   // Register and login routes for guests
   app.get("/register", guest, authController().register);

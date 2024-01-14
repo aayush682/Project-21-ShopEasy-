@@ -61,7 +61,7 @@ function orderController() {
       }
 
       // If the user is not authorized, redirect them to the homepage
-      return res.redirect('/customers/dashboard');
+      return res.redirect('/customer/orders');
     }
   }
 }

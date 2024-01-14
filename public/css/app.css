@@ -249,11 +249,71 @@
 body {
   font-family: "inter";
   color: #232323;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* This ensures the content takes at least the full height of the viewport */
 }
 
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#loading-spinner-container {
+  position: relative;
+  margin-right: 30px;
+  padding: 10px;
+}
+
+#loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #ff3c00;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1.5s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 25px;
+  display: none;
+}
+
+/* Add your other styles and animations as needed */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 nav li a {
   transition: all 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 nav li a:hover {
   color: #ff3c00;
@@ -311,6 +371,9 @@ section.cart {
 section.cart .amount {
   color: #ff3c00;
 }
+section.cart h1 {
+  color: #ff3c00;
+}
 
 section.login {
   background: #f8f8f8;
@@ -337,6 +400,9 @@ a.link {
 section.status {
   background: #f8f8f8;
   min-height: 87.2vh;
+}
+section.status h6 {
+  color: #ff3c00;
 }
 
 .status-box {
@@ -439,4 +505,35 @@ section.status {
   float: right;
   font-size: 14px;
   margin-top: 8px;
+}
+
+footer {
+  margin-top: auto; /* This pushes the footer to the bottom of the page */
+}
+footer span {
+  color: #ff3c00;
+}
+footer p {
+  color: #ff3c00;
+}
+
+@media (max-width: 1060px) {
+  .container {
+    max-width: 90%;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 768px) {
+  nav li a {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .status-box ul li span:before {
+    font-size: 50px;
+  }
 }

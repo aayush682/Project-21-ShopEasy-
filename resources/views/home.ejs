@@ -1,29 +1,42 @@
 <section class="hero bg-gray-100 py-16">
   <div class="container mx-auto flex items-center justify-between">
     <div class="w-1/2">
-      <h6 class="text-3xl font-normal text-gray-700 py-8">Get up to 50% off on selected sneakers</h6>
-      <h1 class="text-5xl font-medium"><span class="font-light text-6xl">Sneaker's</span> specially
+      <h6 class="text-lg md:text-2xl font-normal text-gray-700 py-5">Get up to 50% off on selected sneakers</h6>
+      <h1 class="text-xl md:text-3xl  font-medium"><span class="font-light text-4xl md:text-6xl">Sneaker's </span>
+        specially
         designed for you!
       </h1>
-      <button class="py-3 px-8 rounded-full text-white text-2xl font-bold mt-8 btn-primary"><a href="#menu">Order
+      <button class="py-2 px-4 rounded-full text-white text-sm md:text-lg font-bold mt-8 btn-primary"><a
+          href="#menu">Order
           Now</a></button>
     </div>
     <div class="w-1/2">
-      <img src="/images/shoes-bg1.jpg" class="ml-40" alt="">
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="bg-gray-100" src="/images/shoes-bg1.jpg" alt="">
+          </div>
+          <div class="swiper-slide">
+            <img class="bg-gray-100" src="/images/shoes-bg.jpg" alt="">
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
-<section class="menu container mx-auto py-16">
-  <h1 class="text-4xl font-semibold mb-8" id="menu">All Sneakers</h1>
-  <div class="grid grid-cols-4 col-gap-12 row-gap-16">
-    <% shoes.forEach((shoe)=> { %>
+<section class="menu container mx-auto py-16" id="menu">
+  <h1 class="text-2xl md:text-4xl font-bold mb-6">All Sneakers</h1>
+  <div id="shoes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-12 row-gap-16">
+    <% shoes.splice(0, 8).forEach((shoe)=> { %>
       <div class="w-full">
         <img class="h-48 mb-4 mx-auto" src="/images/<%= shoe.image %>" alt="">
         <div class="text-center">
           <h2 class="mb-4 text-lg font-semibold">
             <%= shoe.name %>
           </h2>
-          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size : <%= shoe.size %></span>
+          <span class="py-1 px-4 bg-gray-200 rounded-2xl uppercase">Size: <%= shoe.size %></span>
           <div class="flex items-center justify-around mt-6">
             <span class="font-bold text-lg">₹ <%= shoe.price %></span>
             <button data-shoe="<%= JSON.stringify(shoe) %>"
@@ -36,4 +49,12 @@
       </div>
       <% }) %>
   </div>
+  <div id="loading-spinner-container">
+    <div id="loading-spinner"></div>
+  </div>
+  <button id="load-more-btn"
+    class="btn-primary mt-16 mx-auto block py-2 px-4 rounded-full text-white text-sm md:text-lg font-bold"
+    onclick="loadMore()">Load More</button>
+
+  <span class="text-lg md:text-2xl font-bold text-gray-700 py-5 hidden text-center mt-16" id="no-more-shoes"></span>
 </section>

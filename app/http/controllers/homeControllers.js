@@ -16,6 +16,23 @@ function homeController() {
       } catch (error) {
         // If there's an error, handle it here
       }
+    },
+    about(req, res) {
+      res.render('about');
+    },
+    async shoes(req, res) {
+      try {
+        const page = req.query.page || 1;
+        const perPage = 4;
+
+        const shoes = await Shoe.find()
+          .skip((page - 1) * perPage)
+          .limit(perPage);
+
+        res.json(shoes);
+      } catch (error) {
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
     }
   };
 }
