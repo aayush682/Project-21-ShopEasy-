@@ -31,7 +31,7 @@ function orderController() {
         // If the order is saved successfully, set a success flash message, delete the cart from the session, and redirect to the customer's orders page
         req.flash('success', 'Order created successfully');
         delete req.session.cart;
-        return res.redirect('customers/orders');
+        return res.redirect('customer/orders');
       }).catch(err => {
         // If there is an error while saving the order, set an error flash message and redirect to the cart page
         req.flash('error', 'Something went wrong');
